@@ -1,0 +1,24 @@
+ARG420 — RECONSTRUCCIÓN DEL SITIO
+
+IMPORTANTE
+Esta versión corrige las rutas de imágenes: todos los archivos de imagen están en la misma carpeta que index.html. Por eso las rutas son, por ejemplo, "fancy-pack.png" y "bestias.png"; no llevan "assets/".
+
+CONTENIDO
+- index.html: página principal.
+- styles.css: diseño adaptable a celular y computadora.
+- app.js: selección visual de hasta 2 números y mensaje preparado para WhatsApp.
+- manifest.webmanifest y sw.js: base de instalación PWA.
+- Imágenes PNG/JPG: todas en la carpeta raíz.
+
+CÓMO SUBIRLO AL REPOSITORIO EXISTENTE
+1. Descomprimí este ZIP en el teléfono o computadora.
+2. Abrí el repositorio arg420-sorteo en GitHub.
+3. En la pestaña Code, elegí Add file > Upload files.
+4. Subí TODOS los archivos que están dentro de esta carpeta, juntos, directamente a la raíz del repositorio. No subas la carpeta contenedora.
+5. Confirmá los cambios (Commit changes) en la rama main.
+6. Esperá unos minutos y abrí la dirección publicada de GitHub Pages.
+
+ATENCIÓN SOBRE LAS RESERVAS
+Esta versión es una maqueta funcional de selección y envío por WhatsApp. Todavía NO bloquea números ni sincroniza reservas entre visitantes. No publiques el sorteo para recibir pagos o confirmar números hasta conectar una base de datos y un panel privado. El paso siguiente es configurar Supabase (o backend equivalente), políticas de seguridad, bloqueo transaccional de números y autenticación de administrador.
+
+No contiene contraseñas ni claves privadas. Nunca pongas una clave secreta/service_role en archivos públicos.

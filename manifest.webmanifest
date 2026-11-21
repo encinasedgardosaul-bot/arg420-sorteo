@@ -1,9 +1,9 @@
 {
-  "name": "ARG420",
+  "name": "ARG420 Sorteo de la comunidad",
   "short_name": "ARG420",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#0b100c",
-  "theme_color": "#101710",
-  "icons": []
+  "background_color": "#09110c",
+  "theme_color": "#101810",
+  "lang": "es-AR"
 }
