@@ -3,56 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101810">
-  <meta name="description" content="ARG420 — Comunidad, información y responsabilidad. Sorteo de la comunidad.">
+  <meta name="theme-color" content="#101710">
+  <meta name="description" content="ARG420 — Sorteo de la comunidad y novedades.">
   <title>ARG420 | Sorteo de la comunidad</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="ARG420 inicio"><span>ARG</span><b>420</b><small>COMUNIDAD · INFO · RESPONSABILIDAD</small></a>
-    <a class="whatsapp" href="https://wa.me/5491125229926" target="_blank" rel="noopener">WhatsApp</a>
-  </header>
+<header class="top">
+  <div class="brand"><span>ARG</span><b>420</b><small>COMUNIDAD · INFO · RESPONSABILIDAD</small></div>
+  <a class="wa small" href="https://wa.me/5491125229926" target="_blank" rel="noopener">WhatsApp</a>
+</header>
 
-  <main id="inicio">
-    <section class="hero">
-      <div class="hero-art"><img src="bestias.png" alt="Personajes ilustrados de ARG420"></div>
-      <div class="hero-copy">
-        <p class="eyebrow">SORTEO DE LA COMUNIDAD</p>
-        <h1>¡GANATE UN<br><em>SET HIDROPÓNICO!</em></h1>
-        <p class="intro">Balde, bomba de aire, mangueras, difusor, tapa, canastita y 4 semillas de ARG420.</p>
-        <div class="prices"><div><strong>$5.000</strong><span>1 número</span></div><div><strong>$9.000</strong><span>2 números</span></div></div>
-        <p class="limited">SOLO 40 NÚMEROS · SORTEAMOS AL COMPLETARLOS</p>
-      </div>
-    </section>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">SORTEO DE LA COMUNIDAD</p>
+      <h1>¡GANATE UN<br><em>SET HIDROPÓNICO!</em></h1>
+      <p>Balde, bomba de aire, mangueras, difusor, tapa, canastita y 4 semillas de ARG420.</p>
+      <div class="price-row"><strong>$5.000</strong><span>1 número</span><strong>$9.000</strong><span>2 números</span></div>
+      <p class="limited">SOLO 40 NÚMEROS · SORTEAMOS AL COMPLETARLOS</p>
+    </div>
+    <div class="hero-art"><img src="bestias.png" alt="Personajes ilustrados de ARG420"></div>
+  </section>
 
-    <section class="draw panel" id="participar">
-      <div class="section-head"><div><p class="eyebrow">PARTICIPÁ</p><h2>Elegí tus números</h2></div><div class="available"><b id="availableCount">40</b><span>disponibles*</span></div></div>
-      <div class="legend"><span><i class="dot free"></i>Disponible</span><span><i class="dot chosen"></i>Tu selección</span><span><i class="dot pending"></i>Reservado*</span></div>
-      <div id="numbers" class="numbers" aria-label="Números del sorteo"></div>
-      <div class="selection"><div><span>Tu selección</span><strong id="selectionText">Ningún número</strong></div><div><span>Total</span><strong id="total">$0</strong></div></div>
-      <form id="reserveForm" class="reserve-form">
-        <label>Tu nombre<input id="customerName" required maxlength="60" placeholder="Nombre y apellido" autocomplete="name"></label>
-        <label>Tu WhatsApp<input id="customerPhone" required maxlength="30" placeholder="Código de área y número" inputmode="tel" autocomplete="tel"></label>
-        <button class="primary" type="submit">Continuar por WhatsApp</button>
-      </form>
-      <p class="notice">*Esta es la versión inicial de la página. La selección todavía no bloquea números para otros visitantes. Antes de recibir reservas, conectaremos la base de datos y el panel privado.</p>
-    </section>
+  <section class="draw panel">
+    <div class="section-head">
+      <div><p class="eyebrow">PARTICIPÁ</p><h2>Elegí tus números</h2></div>
+      <div class="counter"><b id="availableCount">40</b><span>disponibles</span></div>
+    </div>
+    <div class="legend"><span><i class="free"></i> Disponible</span><span><i class="pending"></i> Reservado</span><span><i class="chosen"></i> Tu selección</span></div>
+    <div id="numbers" class="numbers" aria-label="Números del sorteo"></div>
+    <div class="selection">
+      <div><span class="muted">Tu selección</span><strong id="selectionText">Ningún número</strong></div>
+      <div><span class="muted">Total</span><strong id="total">$0</strong></div>
+    </div>
+    <form id="reserveForm">
+      <label>Tu nombre<input id="customerName" required maxlength="60" placeholder="Nombre y apellido"></label>
+      <label>Tu WhatsApp<input id="customerPhone" required maxlength="30" placeholder="Código de área y número"></label>
+      <button class="primary" type="submit">Continuar por WhatsApp</button>
+      <p class="notice">La selección de esta vista inicial es una demostración: todavía no bloquea números para otros visitantes. La reserva real requiere conectar la base de datos y el panel privado.</p>
+    </form>
+  </section>
 
-    <section class="ads">
-      <div class="section-head"><div><p class="eyebrow">UNIVERSO ARG420</p><h2>Genéticas, novedades y promos</h2></div></div>
-      <div class="ad-grid">
-        <article class="ad-card"><img src="fancy-pack.png" alt="Pack Fancy ARG420"><div><span>GENÉTICA DESTACADA</span><h3>Fancy</h3><p>Conocé una de las propuestas de nuestro catálogo.</p></div></article>
-        <article class="ad-card"><img src="Punch-out.png" alt="Punch Out"><div><span>NOVEDADES</span><h3>Punch Out</h3><p>Nuevas propuestas y contenido de ARG420.</p></div></article>
-        <article class="ad-card"><img src="combo-exótica.png" alt="Combo Exótica de Colores"><div><span>COMBOS Y PROMOS</span><h3>Combo Exótica</h3><p>Una selección especial de nuestro universo.</p></div></article>
-        <article class="ad-card"><img src="combo-frutal.png" alt="Combo Frutal"><div><span>COMBOS Y PROMOS</span><h3>Combo Frutal</h3><p>Conocé las opciones frutales de ARG420.</p></div></article>
-        <article class="ad-card"><img src="moby-dick.png" alt="Moby Dick"><div><span>CATÁLOGO</span><h3>Moby Dick</h3><p>Descubrí más opciones del catálogo.</p></div></article>
-        <article class="ad-card"><img src="gelato-xxl.png" alt="Gelato XXL"><div><span>CATÁLOGO</span><h3>Gelato XXL</h3><p>Más novedades de ARG420.</p></div></article>
-      </div>
-    </section>
-  </main>
-  <footer><div class="brand"><span>ARG</span><b>420</b></div><p>Comunidad, información y responsabilidad.</p></footer>
-  <script src="app.js"></script>
+  <section class="ads">
+    <div class="section-head"><div><p class="eyebrow">UNIVERSO ARG420</p><h2>Genéticas, novedades y promos</h2></div></div>
+    <div class="ad-grid">
+      <article class="ad-card"><img src="fancy-pack.png" alt="Pack Fancy ARG420"><div><span>GENÉTICA DESTACADA</span><h3>Fancy</h3><p>Conocé una de las genéticas de nuestro catálogo.</p></div></article>
+      <article class="ad-card"><img src="Punch-out.png" alt="Punch Out"><div><span>NOVEDADES</span><h3>Punch Out</h3><p>Nuevas propuestas y contenido de ARG420.</p></div></article>
+      <article class="ad-card"><img src="combo-exotica.png" alt="Combo Exótica de Colores"><div><span>COMBOS Y PROMOS</span><h3>Exótica de colores</h3><p>Descubrí los combos destacados de la comunidad.</p></div></article>
+      <article class="ad-card"><img src="combo-frutal.png" alt="Combo Frutal"><div><span>COMBOS Y PROMOS</span><h3>Combo Frutal</h3><p>Más novedades para conocer en ARG420.</p></div></article>
+      <article class="ad-card"><img src="moby-dick.png" alt="Moby Dick"><div><span>CATÁLOGO</span><h3>Moby Dick</h3><p>Una genética presente en nuestro catálogo.</p></div></article>
+      <article class="ad-card"><img src="gelato-xxl.png" alt="Gelato XXL"><div><span>CATÁLOGO</span><h3>Gelato XXL</h3><p>Explorá más opciones de ARG420.</p></div></article>
+    </div>
+  </section>
+</main>
+<footer><div class="brand"><span>ARG</span><b>420</b></div><p>Comunidad, información y responsabilidad.</p><a href="https://wa.me/5491125229926" target="_blank" rel="noopener">Contactar por WhatsApp</a></footer>
+<script src="app.js"></script>
 </body>
 </html>
