@@ -1,0 +1,9 @@
+{
+  "name": "ARG420",
+  "short_name": "ARG420",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b100c",
+  "theme_color": "#101710",
+  "icons": []
+}
