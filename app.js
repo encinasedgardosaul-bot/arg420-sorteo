@@ -8,9 +8,11 @@ const numbersEl = document.getElementById('numbers');
 const availableEl = document.getElementById('availableCount');
 const selectionEl = document.getElementById('selectionText');
 const totalEl = document.getElementById('total');
+const reserveForm = document.getElementById('reserveForm');
 
 const selected = new Set();
 const reserved = new Set();
+const names = new Map();
 
 function updateSelection() {
   const list = [...selected].sort((a, b) => a - b);
@@ -32,13 +34,25 @@ function renderNumbers() {
 
     button.type = 'button';
     button.className = 'number';
-    button.textContent = String(n).padStart(2, '0');
+
+    const numberText = String(n).padStart(2, '0');
 
     if (reserved.has(n)) {
+      const firstName = names.get(n) || '';
+
       button.classList.add('pending');
       button.disabled = true;
-      button.title = 'Número reservado';
+      button.textContent = firstName
+        ? `${numberText}\n${firstName}`
+        : numberText;
+
+      button.style.whiteSpace = 'pre-line';
+      button.style.fontSize = firstName ? '12px' : '16px';
+      button.title = firstName
+        ? `Reservado por ${firstName}`
+        : 'Número reservado';
     } else {
+      button.textContent = numberText;
       button.classList.toggle('selected', selected.has(n));
 
       button.addEventListener('click', () => {
@@ -65,8 +79,9 @@ function renderNumbers() {
 
 async function loadNumbers() {
   const { data, error } = await db
-    .from('Numeros_sorteo')
-    .select('Numero, Estado');
+    .from('numeros_publicos')
+    .select('Numero, Estado, Nombre')
+    .order('Numero');
 
   if (error) {
     console.error(error);
@@ -75,17 +90,25 @@ async function loadNumbers() {
   }
 
   reserved.clear();
+  names.clear();
 
   data.forEach(row => {
+    const number = Number(row.Numero);
+
     if (row.Estado !== 'Disponible') {
-      reserved.add(Number(row.Numero));
+      reserved.add(number);
+
+      if (row.Nombre) {
+        names.set(number, String(row.Nombre).split(' ')[0]);
+      }
     }
   });
 
   renderNumbers();
+  updateSelection();
 }
 
-document.getElementById('reserveForm').addEventListener('submit', async event => {
+reserveForm.addEventListener('submit', async event => {
   event.preventDefault();
 
   if (selected.size === 0) {
@@ -102,8 +125,8 @@ document.getElementById('reserveForm').addEventListener('submit', async event =>
   }
 
   const list = [...selected].sort((a, b) => a - b);
+  const button = reserveForm.querySelector('button[type="submit"]');
 
-  const button = event.submitter;
   button.disabled = true;
   button.textContent = 'Procesando reserva...';
 
@@ -114,9 +137,12 @@ document.getElementById('reserveForm').addEventListener('submit', async event =>
   });
 
   if (error) {
+    console.error(error);
     alert('No se pudo completar la reserva. Puede que otro participante haya elegido esos números. Actualizá la página.');
+
     button.disabled = false;
     button.textContent = 'Continuar por WhatsApp';
+
     await loadNumbers();
     return;
   }
@@ -131,6 +157,8 @@ document.getElementById('reserveForm').addEventListener('submit', async event =>
     `Total: ${price}`;
 
   selected.clear();
+
+  await loadNumbers();
 
   window.location.href =
     'https://wa.me/5491125229926?text=' +
