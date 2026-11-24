@@ -153,7 +153,7 @@ reserveForm.addEventListener('submit', async event => {
     await loadNumbers(false);
   } finally {
     button.disabled = false;
-    button.textContent = 'Reservar y continuar por WhatsApp';
+    button.textContent = 'Reservar número';
   }
 });
 
